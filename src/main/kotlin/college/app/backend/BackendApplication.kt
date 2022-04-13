@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController
 @SpringBootApplication(exclude = [DataSourceAutoConfiguration::class])
 class BackendApplication
 
+//test line delete later
+
 fun main(args: Array<String>) {
 	runApplication<BackendApplication>(*args)
 }
