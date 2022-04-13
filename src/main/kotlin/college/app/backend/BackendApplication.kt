@@ -24,6 +24,8 @@ class BackendApplication(@Autowired val jdbcTemplate: JdbcTemplate) : CommandLin
     }
 }
 
+//test line delete later
+
 fun main(args: Array<String>) {
     runApplication<BackendApplication>(*args)
 }
