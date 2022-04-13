@@ -1,3 +1,3 @@
 # Backend
 
-Kotlin, Spring Boot, and SQL
+Kotlin and Spring Boot
