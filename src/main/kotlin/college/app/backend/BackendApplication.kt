@@ -8,23 +8,8 @@ import org.springframework.web.bind.annotation.*
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.query
 
-
-// TODO: Add Database
 @SpringBootApplication
-class BackendApplication(@Autowired val jdbcTemplate: JdbcTemplate) : CommandLineRunner {
-    override fun run(vararg args: String?) {
-        var colleges =  jdbcTemplate.query(
-                "SELECT * FROM CollegeData"
-        ) { rs, rowNum ->
-            College(rs.getString("id"),
-                    rs.getString("college_name"),
-                    rs.getDouble("GPA"))
-        }
-        println(colleges)
-    }
-}
-
-//test line delete later
+class BackendApplication
 
 fun main(args: Array<String>) {
     runApplication<BackendApplication>(*args)
@@ -34,9 +19,10 @@ fun main(args: Array<String>) {
 // Handle CORS headers for requests
 // Temp Solution: Define allowed origins
 
+@RequestMapping(path = ["/test"])
 @RestController
 class CollegeResource {
-    @CrossOrigin(origins = ["http://localhost:8080", "http://localhost:3000"])
+    @CrossOrigin(origins = ["http://localhost:3000"])
     @GetMapping
     fun index(): List<College> = listOf(
             College("1", "Hello", 4.00),
@@ -44,20 +30,39 @@ class CollegeResource {
     )
 }
 
-//@RequestMapping(path = ["/blogs"])
-//@RestController
-//class GetCollegeData(@Autowired val jdbcTemplate: JdbcTemplate) {
-//    @GetMapping
-//    fun index() {
-//        var colleges =  jdbcTemplate.query(
-//                "SELECT * FROM CollegeData"
-//        ) { rs, rowNum ->
-//            College(rs.getString("id"),
-//                    rs.getString("college_name"),
-//                    rs.getDouble("GPA"))
-//        }
-//        println(colleges)
-//    }
-//}
+@RequestMapping(path = ["/colleges"])
+@RestController
+class GetCollegeData(@Autowired val jdbcTemplate: JdbcTemplate) {
+    @CrossOrigin(origins = ["http://localhost:3000"])
+    @GetMapping
+    fun index(): List<College> {
+        var colleges =  jdbcTemplate.query(
+                "SELECT * FROM CollegeData"
+        ) { rs, rowNum ->
+            College(rs.getString("id"),
+                    rs.getString("college_name"),
+                    rs.getDouble("GPA"))
+        }
+        return colleges
+    }
+}
+
+@RequestMapping(path = ["/add"])
+@RestController
+class AddNewCollege(@Autowired val jdbcTemplate: JdbcTemplate) {
+    @CrossOrigin(origins = ["http://localhost:3000"])
+    @GetMapping
+    fun addCollege(): String {
+        var SQL = "INSERT INTO CollegeData (college_name, GPA) VALUES ('University of Texas', 3.87)"
+        var res = jdbcTemplate.update(SQL)
+        if (res > 0) {
+            return "Added New Row"
+        } else {
+            return "Failed"
+        }
+    }
+}
+
+
 
 data class College(val id: String, val college_name: String, val GPA: Double)
