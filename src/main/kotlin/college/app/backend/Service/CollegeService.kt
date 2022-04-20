@@ -15,4 +15,7 @@ class CollegeService {
         return repository.findAll()
     }
 
+    fun addCollege(college_name: String, GPA: Float): College {
+        return repository.save(College(null, college_name, GPA));
+    }
 }
