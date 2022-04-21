@@ -15,7 +15,9 @@ class CollegeService {
         return repository.findAll()
     }
 
-    fun addCollege(college_name: String, GPA: Float): College {
-        return repository.save(College(null, college_name, GPA));
+    fun addCollege(collegeInfo: Map<String, Any>): College {
+        val collegeName: String = collegeInfo["college_name"] as String
+        val location: String = collegeInfo["location"] as String
+        return repository.save(College(null, collegeName, location));
     }
 }

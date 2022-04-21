@@ -38,3 +38,25 @@ class AddNewCollege(@Autowired val jdbcTemplate: JdbcTemplate) {
 }
 
 data class College(val id: String, val college_name: String, val GPA: Double)
+
+
+
+
+
+
+
+Old CollegeData JPA object
+//@Entity
+//@Table(name = "CollegeData")
+//data class College (
+//        @Id
+//        @GeneratedValue(strategy = GenerationType.IDENTITY)
+//        @Column(name = "id")
+//        var id : Int?,
+//
+//        @Column(name = "college_name")
+//        var college_name: String,
+//
+//        @Column(name = "GPA")
+//        var GPA : Float,
+//)

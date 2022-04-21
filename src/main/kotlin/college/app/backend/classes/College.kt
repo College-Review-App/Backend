@@ -3,7 +3,7 @@ package college.app.backend.classes
 import javax.persistence.*
 
 @Entity
-@Table(name = "CollegeData")
+@Table(name = "colleges")
 data class College (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,6 +13,6 @@ data class College (
     @Column(name = "college_name")
     var college_name: String,
 
-    @Column(name = "GPA")
-    var GPA : Float,
+    @Column(name = "location")
+    var location : String,
 )
