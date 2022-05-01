@@ -1,0 +1,68 @@
+package college.app.backend.classes
+
+import java.util.*
+import javax.persistence.*
+
+@Entity
+@Table(name = "applicantReviews")
+data class ApplicantReview (
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "reviewId")
+        var reviewId : Int?,
+
+        @ManyToOne
+        @JoinColumn(name = "collegeId", referencedColumnName = "collegeId")
+        var college : College,
+
+        @Column(name = "reviewDate")
+        var reviewDate : Date,
+
+        @Column(name = "city")
+        var city : String,
+
+        @Column(name = "state")
+        var state: String,
+
+        @Column(name = "country")
+        var country : String,
+
+        @Column(name = "race")
+        var race : String,
+
+        @Column(name = "gender")
+        var gender : Int,
+
+        @Column(name = "familyIncome")
+        var familyIncome : Int,
+
+        @Column(name = "highschool")
+        var highschool : String,
+
+        @Column(name = "GPA")
+        var GPA : Float,
+
+        @Column(name = "SAT")
+        var SAT : Float,
+
+        @Column(name = "ACT")
+        var ACT : Float,
+
+        @Column(name = "intendedMajor")
+        var intendedMajor : String,
+
+        @Column(name = "extracurriculars")
+        var extracurriculars : String,
+
+        @Column(name = "advice")
+        var advice : String,
+
+        @Column(name = "likes")
+        var likes : Int,
+
+        @Column(name = "outcome")
+        var outcome : Int,
+
+        @Column(name = "isVerified")
+        var isVerified : Boolean,
+)

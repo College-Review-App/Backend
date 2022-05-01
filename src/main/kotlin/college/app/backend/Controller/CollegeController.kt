@@ -19,12 +19,4 @@ class CollegeController {
     fun getColleges(): List<College> {
         return service.getColleges()
     }
-
-    @CrossOrigin(origins = ["http://localhost:3000"])
-    @PostMapping("/add-college")
-    fun addCollege(@RequestBody college: String): College{
-        val springParser = JsonParserFactory.getJsonParser()
-        var body = springParser.parseMap(college)
-        return service.addCollege(body)
-    }
 }

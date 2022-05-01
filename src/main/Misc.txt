@@ -60,3 +60,31 @@ Old CollegeData JPA object
 //        @Column(name = "GPA")
 //        var GPA : Float,
 //)
+
+Old Application Class
+//@Id
+//@GeneratedValue(strategy = GenerationType.IDENTITY)
+//@Column(name = "id")
+//var id : Int?,
+//
+//@Column(name = "GPA")
+//var GPA : Float,
+//
+//@Column(name = "state")
+//var state: String,
+//
+//@ManyToOne
+//@JoinColumn(name = "college_id", referencedColumnName = "id")
+//var college : College,
+
+Old College Class
+//@Id
+//@GeneratedValue(strategy = GenerationType.IDENTITY)
+//@Column(name = "id")
+//var id : Int?,
+//
+//@Column(name = "college_name")
+//var college_name: String,
+//
+//@Column(name = "location")
+//var location : String,
