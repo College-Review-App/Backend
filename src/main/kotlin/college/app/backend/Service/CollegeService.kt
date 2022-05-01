@@ -15,4 +15,8 @@ class CollegeService {
         return repository.findAll()
     }
 
+    fun getCollegeIdByCollegeName(collegeName: String): Int {
+        return repository.findCollegeIdByCollegeName(collegeName)
+    }
+
 }
