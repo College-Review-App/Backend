@@ -21,7 +21,7 @@ class ApplicantReviewController {
 
     @CrossOrigin(origins = ["http://localhost:3000"])
     @GetMapping("/find-applications-by-college-id")
-    fun test(@RequestParam id: Int): List<ApplicantReview> {
+    fun findApplicationBgyCollegeId(@RequestParam id: Int): List<ApplicantReview> {
         return service.findApplicationsByCollegeId(id)
     }
 }
