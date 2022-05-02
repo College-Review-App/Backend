@@ -1,10 +1,12 @@
 package college.app.backend.Controller
 
+import college.app.backend.Interfaces.ReviewDetails
 import college.app.backend.Service.ApplicantReviewService
 import college.app.backend.classes.College
 import college.app.backend.Service.CollegeService
 import college.app.backend.classes.ApplicantReview
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 
@@ -24,6 +26,20 @@ class ApplicantReviewController {
         return service.getApplications()
     }
 
+//    @CrossOrigin(origins = ["http://localhost:3000"])
+//    @GetMapping("/get-review-details")
+//    fun getReviewDetails(): List<ReviewDetails> {
+//        return service.findAllReviewDetails()
+//    }
+
+    @CrossOrigin(origins = ["http://localhost:3000"])
+    @GetMapping("/get-review-details")
+    fun getReviewDetails(): ResponseEntity<List<Any>> {
+        return service.findAllReviewDetails()
+    }
+
+
+
     @CrossOrigin(origins = ["http://localhost:3000"])
     @GetMapping("/find-applications-by-college-id")
     fun findApplicationByCollegeId(@RequestParam id: Int): List<ApplicantReview> {
@@ -38,12 +54,4 @@ class ApplicantReviewController {
         print(id);
         return service.findApplicationsByCollegeId(id);
     }
-
-
-
-
-
-
-
-
 }

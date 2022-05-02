@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface CollegeRepository: JpaRepository<College, Int> {
-
     @Query(
             value = "SELECT collegeId from colleges WHERE colleges.collegeName = :collegeName LIMIT 1",
             nativeQuery = true

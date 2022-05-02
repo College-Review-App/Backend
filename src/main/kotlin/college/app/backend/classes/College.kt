@@ -24,4 +24,7 @@ data class College (
 
     @Column(name = "ranking")
     var ranking : Int,
+
 )
+
+
