@@ -1,5 +1,6 @@
 package college.app.backend.classes
 
+import java.time.LocalDateTime
 import java.util.*
 import javax.persistence.*
 
@@ -16,7 +17,7 @@ data class ApplicantReview (
         var college : College,
 
         @Column(name = "reviewDate")
-        var reviewDate : Date,
+        var reviewDate : LocalDateTime,
 
         @Column(name = "city")
         var city : String,
@@ -43,10 +44,10 @@ data class ApplicantReview (
         var GPA : Float,
 
         @Column(name = "SAT")
-        var SAT : Float,
+        var SAT : Int,
 
         @Column(name = "ACT")
-        var ACT : Float,
+        var ACT : Int,
 
         @Column(name = "intendedMajor")
         var intendedMajor : String,

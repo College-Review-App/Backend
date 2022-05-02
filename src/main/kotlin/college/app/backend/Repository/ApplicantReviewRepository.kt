@@ -14,6 +14,7 @@ interface ApplicantReviewRepository: JpaRepository<ApplicantReview, Int> {
 
     fun findApplicationsByCollegeCollegeId(college: Int): List<ApplicantReview>
 
+
 //    fun findApplicationsByCollegeCollegeName(collegeName: String): List<ApplicantReview>
 
 

@@ -13,4 +13,7 @@ interface CollegeRepository: JpaRepository<College, Int> {
     )
     fun findCollegeIdByCollegeName(collegeName: String): Int
 
+    //returns a college from the database based on the int college id passed in
+    fun findCollegeByCollegeId(collegeId: Int): College
+
 }

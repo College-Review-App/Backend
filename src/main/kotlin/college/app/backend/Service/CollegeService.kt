@@ -18,4 +18,8 @@ class CollegeService {
     fun getCollegeIdByCollegeName(collegeName: String): Int {
         return repository.findCollegeIdByCollegeName(collegeName)
     }
+
+    fun getCollegeByCollegeId(collegeId: Int): College {
+        return repository.findCollegeByCollegeId(collegeId);
+    }
 }

@@ -6,6 +6,7 @@ import college.app.backend.classes.College
 import college.app.backend.Service.CollegeService
 import college.app.backend.classes.ApplicantReview
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.json.JsonParserFactory
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
@@ -54,4 +55,15 @@ class ApplicantReviewController {
         print(id);
         return service.findApplicationsByCollegeId(id);
     }
+
+    @CrossOrigin(origins = ["http://localhost:3000"])
+    @PostMapping("/add-applications-by-college-name")
+    fun findApplicationsByCollegeName(@RequestParam collegeName: String, @RequestBody application: String): ApplicantReview {
+        val springParser = JsonParserFactory.getJsonParser()
+        val body = springParser.parseMap(application)
+        val id = collegeService.getCollegeIdByCollegeName(collegeName);
+        val college = collegeService.getCollegeByCollegeId(id);
+        return service.addApplicationsByCollege(body, college);
+    }
+
 }
