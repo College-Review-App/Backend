@@ -10,17 +10,6 @@ import org.springframework.stereotype.Repository
 @Repository
 interface ApplicantReviewRepository: JpaRepository<ApplicantReview, Int> {
 
-    fun findAllBy(): List<ReviewDetails>
+    fun findApplicationsByCollegeCollegeId(college: Int): List<ReviewDetails>
 
-    fun findApplicationsByCollegeCollegeId(college: Int): List<ApplicantReview>
-
-
-//    fun findApplicationsByCollegeCollegeName(collegeName: String): List<ApplicantReview>
-
-
-//    @Query(
-//            value = "SELECT * FROM applications JOIN colleges ON applications.college_id = colleges.id WHERE colleges.id = :id",
-//            nativeQuery = true
-//    )
-//    fun findByCollegeId(id: Int): List<ApplicantReview>
 }

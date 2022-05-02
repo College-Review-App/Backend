@@ -27,42 +27,27 @@ class ApplicantReviewController {
         return service.getApplications()
     }
 
-//    @CrossOrigin(origins = ["http://localhost:3000"])
-//    @GetMapping("/get-review-details")
-//    fun getReviewDetails(): List<ReviewDetails> {
-//        return service.findAllReviewDetails()
-//    }
-
-    @CrossOrigin(origins = ["http://localhost:3000"])
-    @GetMapping("/get-review-details")
-    fun getReviewDetails(): ResponseEntity<List<Any>> {
-        return service.findAllReviewDetails()
-    }
-
-
-
     @CrossOrigin(origins = ["http://localhost:3000"])
     @GetMapping("/find-applications-by-college-id")
-    fun findApplicationByCollegeId(@RequestParam id: Int): List<ApplicantReview> {
+    fun findApplicationByCollegeId(@RequestParam id: Int): List<ReviewDetails> {
         return service.findApplicationsByCollegeId(id)
     }
-
-    @CrossOrigin(origins = ["http://localhost:3000"])
-    @GetMapping("/find-applications-by-college-name")
-    fun findApplicationsByCollegeName(@RequestParam collegeName: String): List<ApplicantReview> {
-        print(collegeName);
-        var id = collegeService.getCollegeIdByCollegeName(collegeName);
-        print(id);
-        return service.findApplicationsByCollegeId(id);
-    }
+//
+//    @CrossOrigin(origins = ["http://localhost:3000"])
+//    @GetMapping("/find-applications-by-college-name")
+//    fun findApplicationsByCollegeName(@RequestParam collegeName: String): List<ApplicantReview> {
+//        print(collegeName);
+//        var id = collegeService.getCollegeIdByCollegeName(collegeName);
+//        print(id);
+//        return service.findApplicationsByCollegeId(id);
+//    }
 
     @CrossOrigin(origins = ["http://localhost:3000"])
     @PostMapping("/add-applications-by-college-name")
     fun findApplicationsByCollegeName(@RequestParam collegeName: String, @RequestBody application: String): ApplicantReview {
         val springParser = JsonParserFactory.getJsonParser()
         val body = springParser.parseMap(application)
-        val id = collegeService.getCollegeIdByCollegeName(collegeName);
-        val college = collegeService.getCollegeByCollegeId(id);
+        val college = collegeService.getCollegeByCollegeName(collegeName);
         return service.addApplicationsByCollege(body, college);
     }
 

@@ -22,17 +22,7 @@ class ApplicantReviewService {
         return repository.findAll()
     }
 
-//    fun findAllReviewDetails(): List<ReviewDetails> {
-//        return repository.findAllBy()
-//    }
-
-    fun findAllReviewDetails(): ResponseEntity<List<Any>> {
-        val body = Arrays.asList(repository.findAllBy(), repository.findAllBy())
-        return ResponseEntity(body, HttpStatus.OK)
-//        return repository.findAllBy()
-    }
-
-    fun findApplicationsByCollegeId(id: Int): List<ApplicantReview> {
+    fun findApplicationsByCollegeId(id: Int): List<ReviewDetails> {
         return repository.findApplicationsByCollegeCollegeId(id);
     }
 
@@ -55,4 +45,5 @@ class ApplicantReviewService {
         val isVerified: Boolean = applicationInfo["isVerified"] as Boolean;
         return repository.save(ApplicantReview(null, college, currDate ,city, state, country, race, gender, familyIncome, highschool, GPA, SAT, ACT, intendedMajor, extracurriculars, advice, 0, outcome, isVerified));
     }
+
 }
