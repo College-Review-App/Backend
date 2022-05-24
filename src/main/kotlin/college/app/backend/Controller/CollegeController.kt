@@ -14,12 +14,15 @@ class CollegeController {
     @Autowired
     lateinit var service: CollegeService
 
+    // API to return all the colleges in the database
     @CrossOrigin(origins = ["http://localhost:3000"])
     @GetMapping("/get-colleges")
     fun getColleges(): List<College> {
         return service.getColleges()
     }
 
+    // API that takes a college name, and returns the collge info and applications
+    // for that college
     @CrossOrigin(origins = ["http://localhost:3000"])
     @GetMapping("/get-college-and-applications-from-college-name")
     fun getColleges(@RequestParam collegeName: String): ResponseEntity<List<Any>> {

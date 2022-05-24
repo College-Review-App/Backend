@@ -1,8 +1,10 @@
 package college.app.backend.classes
 
 import java.time.LocalDateTime
-import java.util.*
 import javax.persistence.*
+
+// Maps the applicant review schema in the MySQL database
+// to this class to be used with JPA.
 
 @Entity
 @Table(name = "applicantReviews")

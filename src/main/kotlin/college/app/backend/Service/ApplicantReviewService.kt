@@ -18,14 +18,17 @@ class ApplicantReviewService {
     @Autowired
     lateinit var repository: ApplicantReviewRepository
 
+    // Gets all applications in the database
     fun getApplications(): List<ApplicantReview> {
         return repository.findAll()
     }
 
+    // Calls the method to get all applications by a specific college ID
     fun findApplicationsByCollegeId(id: Int): List<ReviewDetails> {
         return repository.findApplicationsByCollegeCollegeId(id);
     }
 
+    // Parses a map and writes the resulting data into a new applicant review in MySQL
     fun addApplicationsByCollege(applicationInfo: Map<String, Any>, college: College): ApplicantReview {
         val currDate = LocalDateTime.now();
         val city: String = applicationInfo["city"] as String;

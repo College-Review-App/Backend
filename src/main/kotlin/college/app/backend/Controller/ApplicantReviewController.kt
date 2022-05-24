@@ -21,27 +21,21 @@ class ApplicantReviewController {
     @Autowired
     lateinit var collegeService: CollegeService
 
+    // API to get all applicant reviews in the database
     @CrossOrigin(origins = ["http://localhost:3000"])
     @GetMapping("/get-applications")
     fun getApplications(): List<ApplicantReview> {
         return service.getApplications()
     }
 
+    // API that takes a college ID, and returns the applications for that specific college ID.
     @CrossOrigin(origins = ["http://localhost:3000"])
     @GetMapping("/find-applications-by-college-id")
     fun findApplicationByCollegeId(@RequestParam id: Int): List<ReviewDetails> {
         return service.findApplicationsByCollegeId(id)
     }
-//
-//    @CrossOrigin(origins = ["http://localhost:3000"])
-//    @GetMapping("/find-applications-by-college-name")
-//    fun findApplicationsByCollegeName(@RequestParam collegeName: String): List<ApplicantReview> {
-//        print(collegeName);
-//        var id = collegeService.getCollegeIdByCollegeName(collegeName);
-//        print(id);
-//        return service.findApplicationsByCollegeId(id);
-//    }
 
+    // API that adds a new application
     @CrossOrigin(origins = ["http://localhost:3000"])
     @PostMapping("/add-applications-by-college-name")
     fun findApplicationsByCollegeName(@RequestParam collegeName: String, @RequestBody application: String): ApplicantReview {

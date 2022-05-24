@@ -2,6 +2,9 @@ package college.app.backend.classes
 
 import javax.persistence.*
 
+// Maps the college schema in the MySQL database
+// to this class to be used with JPA.
+
 @Entity
 @Table(name = "colleges")
 data class College (
