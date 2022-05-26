@@ -1,6 +1,5 @@
 package college.app.backend.Repository
 
-import college.app.backend.Interfaces.ReviewDetails
 import college.app.backend.classes.AddCollege
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Modifying
