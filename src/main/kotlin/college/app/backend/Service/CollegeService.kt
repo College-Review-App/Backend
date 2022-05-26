@@ -1,6 +1,6 @@
 package college.app.backend.Service
 
-import college.app.backend.Repository.ApplicantReviewRepository
+import college.app.backend.Repository.ApplicantProfileRepository
 import college.app.backend.Repository.CollegeRepository
 import college.app.backend.classes.College
 import org.springframework.beans.factory.annotation.Autowired
@@ -15,7 +15,7 @@ class CollegeService {
     lateinit var collegeRepository: CollegeRepository
 
     @Autowired
-    lateinit var applicantReviewRepository: ApplicantReviewRepository
+    lateinit var applicantProfileRepository: ApplicantProfileRepository
 
     // Gets all colleges in the database
     fun getColleges(): List<College> {
@@ -28,7 +28,7 @@ class CollegeService {
     fun getCollegeInfoAndApplications(collegeName: String): ResponseEntity<List<Any>> {
         val collegeData = collegeRepository.findCollegeByCollegeName(collegeName)
         val collegeId = collegeData.collegeId ?: throw NullPointerException("College ID was null")
-        val collegeApplicants = applicantReviewRepository.findApplicationsByCollegeCollegeId(collegeId!!)
+        val collegeApplicants = applicantProfileRepository.findApplicationsByCollegeCollegeId(collegeId!!)
         val body = listOf(collegeData, collegeApplicants)
         return ResponseEntity(body, HttpStatus.OK)
     }

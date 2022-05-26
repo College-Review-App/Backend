@@ -21,11 +21,11 @@ class CollegeController {
         return service.getColleges()
     }
 
-    // API that takes a college name, and returns the collge info and applications
+    // API that takes a college name, and returns the college info and applications
     // for that college
     @CrossOrigin(origins = ["http://localhost:3000"])
     @GetMapping("/get-college-and-applications-from-college-name")
-    fun getColleges(@RequestParam collegeName: String): ResponseEntity<List<Any>> {
+    fun getCollegesAndApplications(@RequestParam collegeName: String): ResponseEntity<List<Any>> {
         return service.getCollegeInfoAndApplications(collegeName)
     }
 }

@@ -3,23 +3,23 @@ package college.app.backend.classes
 import java.time.LocalDateTime
 import javax.persistence.*
 
-// Maps the applicant review schema in the MySQL database
+// Maps the applicant profile schema in the MySQL database
 // to this class to be used with JPA.
 
 @Entity
-@Table(name = "applicantReviews")
-data class ApplicantReview (
+@Table(name = "applicantProfiles")
+data class ApplicantProfile (
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "reviewId")
-        var reviewId : Int?,
+        @Column(name = "profileId")
+        var profileId : Int?,
 
         @ManyToOne
         @JoinColumn(name = "collegeId", referencedColumnName = "collegeId")
         var college : College,
 
-        @Column(name = "reviewDate")
-        var reviewDate : LocalDateTime,
+        @Column(name = "profileDate")
+        var profileDate : LocalDateTime,
 
         @Column(name = "city")
         var city : String,
@@ -30,17 +30,23 @@ data class ApplicantReview (
         @Column(name = "country")
         var country : String,
 
-        @Column(name = "race")
-        var race : String,
+        @Column(name = "ethnicity")
+        var ethnicity : String,
+
+        @Column(name = "classOf")
+        var classOf : Int,
+
+        @Column(name = "firstGen")
+        var firstGen : Boolean,
+
+        @Column(name = "legacyStudent")
+        var legacyStudent : Boolean,
 
         @Column(name = "gender")
         var gender : Int,
 
         @Column(name = "familyIncome")
         var familyIncome : Int,
-
-        @Column(name = "highschool")
-        var highschool : String,
 
         @Column(name = "GPA")
         var GPA : Float,

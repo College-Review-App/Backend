@@ -1,10 +1,10 @@
 package college.app.backend.Controller
 
-import college.app.backend.Interfaces.ReviewDetails
-import college.app.backend.Service.ApplicantReviewService
+import college.app.backend.Interfaces.ProfileDetails
+import college.app.backend.Service.ApplicantProfileService
 import college.app.backend.classes.College
 import college.app.backend.Service.CollegeService
-import college.app.backend.classes.ApplicantReview
+import college.app.backend.classes.ApplicantProfile
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.json.JsonParserFactory
 import org.springframework.http.ResponseEntity
@@ -13,36 +13,36 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping
-class ApplicantReviewController {
+class ApplicantProfileController {
 
     @Autowired
-    lateinit var service: ApplicantReviewService
+    lateinit var applicantProfileService: ApplicantProfileService
 
     @Autowired
     lateinit var collegeService: CollegeService
 
     // API to get all applicant reviews in the database
     @CrossOrigin(origins = ["http://localhost:3000"])
-    @GetMapping("/get-applications")
-    fun getApplications(): List<ApplicantReview> {
-        return service.getApplications()
+    @GetMapping("/get-profiles")
+    fun getApplications(): List<ApplicantProfile> {
+        return applicantProfileService.getApplications()
     }
 
     // API that takes a college ID, and returns the applications for that specific college ID.
     @CrossOrigin(origins = ["http://localhost:3000"])
-    @GetMapping("/find-applications-by-college-id")
-    fun findApplicationByCollegeId(@RequestParam id: Int): List<ReviewDetails> {
-        return service.findApplicationsByCollegeId(id)
+    @GetMapping("/find-profiles-by-college-id")
+    fun findApplicationByCollegeId(@RequestParam id: Int): List<ProfileDetails> {
+        return applicantProfileService.findApplicationsByCollegeId(id)
     }
 
     // API that adds a new application
     @CrossOrigin(origins = ["http://localhost:3000"])
-    @PostMapping("/add-applications-by-college-name")
-    fun findApplicationsByCollegeName(@RequestParam collegeName: String, @RequestBody application: String): ApplicantReview {
+    @PostMapping("/add-application-by-college-name")
+    fun findApplicationsByCollegeName(@RequestParam collegeName: String, @RequestBody application: String): ApplicantProfile {
         val springParser = JsonParserFactory.getJsonParser()
         val body = springParser.parseMap(application)
         val college = collegeService.getCollegeByCollegeName(collegeName);
-        return service.addApplicationsByCollege(body, college);
+        return applicantProfileService.addApplicationsByCollege(body, college);
     }
 
 }

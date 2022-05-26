@@ -6,9 +6,9 @@ import java.util.*
 // only the specified fields in the interface are returned during
 // an HTTP request instead of all unnecessary fields.
 
-interface ReviewDetails {
-    fun getReviewId(): Int
-    fun getReviewDate(): Date
+interface ProfileDetails {
+    fun getProfileId(): Int
+    fun getProfileDate(): Date
     fun getState(): String
     fun getGPA(): Float
     fun getIntendedMajor(): String
