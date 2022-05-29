@@ -16,8 +16,16 @@ class AddCollegeController {
 
     @CrossOrigin(origins = ["http://localhost:3000"])
     @PostMapping("/add-new-college")
-    fun addNewCollege(@RequestParam collegeName: String): AddCollege {
-        return service.addNewCollege(collegeName);
+    fun addNewCollege(@RequestBody collegeName: String): AddCollege {
+        val springParser = JsonParserFactory.getJsonParser()
+        val body = springParser.parseMap(collegeName);
+        return service.addNewCollege(body);
+    }
+
+    @CrossOrigin(origins = ["http://localhost:3000"])
+    @GetMapping("/get-all-requested-colleges")
+    fun getAllRequestedColleges(): List<AddCollege> {
+        return service.getAllRequestedColleges();
     }
 
 }

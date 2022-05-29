@@ -38,4 +38,13 @@ class CollegeService {
         return collegeRepository.findCollegeByCollegeName(collegeName);
     }
 
+    fun addRequestedCollegeToCollegeDB(collegeInfo: Map<String, Any>): College {
+        val collegeName: String = collegeInfo["collegeName"] as String;
+        val location: String = collegeInfo["location"] as String;
+        val image: String = collegeInfo["image"] as String;
+        val acceptanceRate: Int = collegeInfo["acceptanceRate"] as Int;
+        val ranking: Int = collegeInfo["ranking"] as Int;
+        return collegeRepository.save(College(null, collegeName, location, image, acceptanceRate, ranking));
+    }
+
 }

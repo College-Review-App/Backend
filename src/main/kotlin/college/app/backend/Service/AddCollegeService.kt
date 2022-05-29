@@ -12,9 +12,10 @@ class AddCollegeService {
     @Autowired
     lateinit var repository: AddCollegeRepository
 
-    fun addNewCollege(collegeName: String): AddCollege {
-
-
+    //Adds a new college to the repository if it does not previously exist.
+    //If it does exist increment that college count by 1
+    fun addNewCollege(collegeNameMap: Map<String, Any>): AddCollege {
+        val collegeName: String = collegeNameMap["collegeName"] as String;
         try {
             val college = repository.findAddCollegeByCollegeName(collegeName);
             val currCount = college.collegeCount;
@@ -24,6 +25,10 @@ class AddCollegeService {
         }
 
         return repository.save(AddCollege(null, collegeName,  1));
-
     }
+
+    fun getAllRequestedColleges() : List<AddCollege> {
+        return repository.findAll();
+    }
+
 }

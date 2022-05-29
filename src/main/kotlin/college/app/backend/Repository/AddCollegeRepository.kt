@@ -19,4 +19,5 @@ interface AddCollegeRepository: JpaRepository<AddCollege, Int> {
             nativeQuery = true
     )
     fun updateCollegeCountIfCollegeNameExists(collegeName : String, currentCount : Int) : Unit
+
 }

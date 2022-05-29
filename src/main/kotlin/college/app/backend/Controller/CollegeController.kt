@@ -3,6 +3,7 @@ package college.app.backend.Controller
 import college.app.backend.Service.CollegeService
 import college.app.backend.classes.College
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.json.JsonParserFactory
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
@@ -28,4 +29,13 @@ class CollegeController {
     fun getCollegesAndApplications(@RequestParam collegeName: String): ResponseEntity<List<Any>> {
         return service.getCollegeInfoAndApplications(collegeName)
     }
+
+    @CrossOrigin(origins = ["http://localhost:3000"])
+    @PostMapping("/add-requested-college-to-college-db")
+    fun addRequestedCollegeToCollegeDB(@RequestBody college: String): College {
+        val springParser = JsonParserFactory.getJsonParser()
+        val body = springParser.parseMap(college)
+        return service.addRequestedCollegeToCollegeDB(body)
+    }
+
 }
