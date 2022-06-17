@@ -1,0 +1,393 @@
+/* Phone */
+@media screen and (max-width: 600px) {
+    .collegeInfoContainer {
+        height: 30vh;
+        background-size: cover;
+        padding: 10px;
+    }
+
+    .collegeInfoTextContainer {
+        margin: -10px 4%;
+        flex-direction: column;
+    }
+
+    .collegeName {
+        font-size: 22px;
+    }
+    
+    .collegeLocation {
+        font-size: 14px;
+    }
+
+    .reviewStatsLeftContainer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 8%;
+    }
+
+    .reviewStatsNumberContainer {
+        width: 100%;
+        padding: 0% 5%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .reviewStatContainer {
+        width: 30%;
+        padding: 0% 1%;
+        border-radius: 12px;
+        height: 120px;
+        margin-bottom: 3.5%;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .reviewStatText {
+        font-size: 30px;
+    }
+
+    .reviewStatHeadlineText {
+        font-size: 18px;
+    }
+
+    .reviewStatDataButton {
+        width: 40%;
+        height: 40px;
+    }
+
+    .applicantReviewsRightContainer {
+        margin-top: 8vh;
+        margin-bottom: 5vh;
+    }
+    
+    .applicantReviewRightHeaderContainer {
+        width: 90%;
+        margin-bottom: 3.5vh;
+    }
+}
+
+@media screen and (max-width: 900px) and (min-width: 600px) {
+    .reviewInfoContainer {
+        display: flex;
+        flex-direction: column;
+        margin-top: 6%;
+    }
+
+    .collegeInfoTextContainer {
+        margin: -10px 4%;
+        flex-direction: column;
+    }
+
+    .collegeName {
+        font-size: 26px;
+    }
+    
+    .collegeLocation {
+        font-size: 16px;
+    }
+
+    .reviewStatsLeftContainer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .reviewStatsNumberContainer {
+        width: 100%;
+        padding: 0% 5%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .reviewStatContainer {
+        width: 30%;
+        padding: 0% 1%;
+        border-radius: 12px;
+        height: 120px;
+        margin-bottom: 3.5%;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .reviewStatText {
+        font-size: 30px;
+    }
+
+    .reviewStatHeadlineText {
+        font-size: 18px;
+    }
+
+    .reviewStatDataButton {
+        width: 40%;
+        height: 45px;
+    }
+
+    .applicantReviewsRightContainer {
+        margin-top: 8vh;
+    }
+
+    .applicantReviewRightHeaderContainer {
+        width: 90%;
+        margin-bottom: 4vh;
+    }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 900px) {
+    .reviewInfoContainer {
+        display: flex;
+        flex-direction: row;
+        margin-top: 2%;
+    }
+
+    .collegeInfoTextContainer {
+        margin: -10px 2.6%;
+        flex-direction: row;
+    }
+
+    .collegeName {
+        font-size: 26px;
+    }
+    
+    .collegeLocation {
+        font-size: 18px;
+    }
+
+    .reviewStatsLeftContainer {
+        display: flex;
+        flex-direction: column;
+        width: 27%;
+        margin-top: 2%;
+        margin-left: 1%;
+    }
+
+    .reviewStatsNumberContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .reviewStatContainer {
+        width: 80%;
+        border-radius: 12px;
+        height: 150px;
+        margin-bottom: 7%;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .reviewStatText {
+        font-size: 36px;
+    }
+
+    .reviewStatHeadlineText {
+        font-size: 20px;
+    }
+
+    .reviewStatDataButton {
+        width: 70%;
+        height: 50px;
+    }
+
+    .applicantReviewsRightContainer {
+        width: 81%;
+    }
+
+    .applicantReviewRightHeaderContainer {
+        width: 83%;
+        margin-bottom: 2.5vh;
+    }
+}
+  
+@media screen and (min-width: 1200px) {
+    .reviewInfoContainer {
+        display: flex;
+        flex-direction: row;
+        margin-top: 2%;
+    }
+
+    .collegeInfoTextContainer {
+        flex-direction: row;
+        margin: -10px 4%;
+    }
+
+    .collegeName {
+        font-size: 34px;
+    }
+    
+    .collegeLocation {
+        font-size: 20px;
+    }
+
+    .reviewStatsLeftContainer {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        margin-top: 2%;
+    }
+
+    .reviewStatsNumberContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .reviewStatContainer {
+        width: 80%;
+        border-radius: 12px;
+        height: 150px;
+        margin-bottom: 5%;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .reviewStatText {
+        font-size: 40px;
+    }
+
+    .reviewStatHeadlineText {
+        font-size: 20px;
+    }
+
+    .reviewStatDataButton {
+        width: 60%;
+        height: 50px;
+    }
+
+    .applicantReviewsRightContainer {
+        width: 74%;
+        padding: 15px 5px;
+    }
+
+    .applicantReviewRightHeaderContainer {
+        width: 80%;
+        margin-bottom: 2.5vh;
+    }
+}
+
+.collegePageContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: #FCFBFA;
+    padding-bottom: 3%;
+}
+
+.collegeInfoContainer {
+    height: 50vh;
+    background-color: #FCFBFA;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    background-image: url('./DefaultCollege.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: rgba(0, 0, 0, 0.80) 0px -80px 48px -16px inset;
+}
+
+.collegeInfoTextContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.collegeName {
+    color: white;
+    font-weight: 500;
+}
+
+.collegeLocation {
+    color: white;
+    align-items: center;
+}
+
+.writeReviewButton {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(30, 136, 229);
+    align-items: center;
+    justify-content: space-evenly;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(66, 65, 65, 0.203),
+    0 6px 20px 0 rgba(161, 155, 155, 0.59);
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+.reviewStatsLeftContainer {
+    align-items: center;
+}
+
+.reviewStatContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(30, 136, 229);
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(66, 65, 65, 0.203),
+    0 6px 20px 0 rgba(161, 155, 155, 0.59);
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.reviewStatText {
+    font-weight: 500;
+    color: white;
+}
+
+.reviewStatHeadlineText {
+    font-weight: 500;
+    color: rgb(144, 202, 249);
+}
+
+.reviewStatDataButton {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(30, 136, 229);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px 0 rgba(66, 65, 65, 0.203),
+    0 6px 20px 0 rgba(161, 155, 155, 0.59);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.reviewStatDataButtonText {
+    font-weight: 400;
+    font-size: 15px;
+    border: none;
+    background-color: transparent;
+    color: rgb(144, 202, 249);
+}
+
+.applicantReviewsRightContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.applicantReviewRightHeaderContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.allReviewsText {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.noApplicantProfilesMessage {
+    font-size: 22px;
+    margin: 5vh 15vw;
+}

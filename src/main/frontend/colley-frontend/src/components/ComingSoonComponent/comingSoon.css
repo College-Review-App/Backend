@@ -1,0 +1,62 @@
+@media screen and (max-width: 600px) {
+    .comingSoonContainer {
+        height: 60vh;
+    }
+
+    .comingSoonText {
+        margin-top: 15%;
+    }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 600px) {
+    .comingSoonContainer {
+        height: 70vh;
+    }
+
+    .comingSoonText {
+        margin-top: 15%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .comingSoonContainer {
+        height: 80vh;
+    }
+
+    .comingSoonText {
+        margin-top: 12%;
+    }
+}
+
+.comingSoonContainer {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+    align-items: center;
+}
+
+.comingSoonText {
+    font-size: 50px;
+    font-weight: 500;
+}
+
+.comingSoonSubtitleText {
+    margin-top: 1%;
+    font-size: 18px
+}
+
+.meantimeText {
+    margin-top: 10%;
+    font-size: 15px;
+    /* background-color: #62D2A2; */
+}
+
+.colleyTextComingSoon {
+    text-decoration: underline;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    color: #62D2A2;
+}

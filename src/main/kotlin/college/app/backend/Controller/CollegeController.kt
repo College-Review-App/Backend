@@ -1,5 +1,6 @@
 package college.app.backend.Controller
 
+import college.app.backend.Interfaces.CollegeDetails
 import college.app.backend.Service.CollegeService
 import college.app.backend.classes.College
 import org.springframework.beans.factory.annotation.Autowired
@@ -16,21 +17,21 @@ class CollegeController {
     lateinit var service: CollegeService
 
     // API to return all the colleges in the database
-    @CrossOrigin(origins = ["http://localhost:3000"])
+    @CrossOrigin(origins = ["http://localhost:3000", "https://colley.fyi", "www.colley.fyi", "https://colleyapp.com", "www.colleyapp.com"])
     @GetMapping("/get-colleges")
-    fun getColleges(): List<College> {
+    fun getColleges(): List<CollegeDetails> {
         return service.getColleges()
     }
 
     // API that takes a college name, and returns the college info and applications
     // for that college
-    @CrossOrigin(origins = ["http://localhost:3000"])
+    @CrossOrigin(origins = ["http://localhost:3000", "https://colley.fyi", "www.colley.fyi", "https://colleyapp.com", "www.colleyapp.com"])
     @GetMapping("/get-college-and-applications-from-college-name")
     fun getCollegesAndApplications(@RequestParam collegeName: String): ResponseEntity<List<Any>> {
         return service.getCollegeInfoAndApplications(collegeName)
     }
 
-    @CrossOrigin(origins = ["http://localhost:3000"])
+    @CrossOrigin(origins = ["http://localhost:3000", "https://colley.fyi", "www.colley.fyi", "https://colleyapp.com", "www.colleyapp.com"])
     @PostMapping("/add-requested-college-to-college-db")
     fun addRequestedCollegeToCollegeDB(@RequestBody college: String): College {
         val springParser = JsonParserFactory.getJsonParser()

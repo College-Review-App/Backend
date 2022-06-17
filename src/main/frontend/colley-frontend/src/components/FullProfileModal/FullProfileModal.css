@@ -1,0 +1,123 @@
+.fullProfileModalContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 85%;
+    background-color: white;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 30px 42px 30px 30px;
+    border-radius: 10px;
+}
+
+.fullProfileModalContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.fullProfileHeaderModalContainer {
+    width: 101%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2vh;
+}
+
+.fullProfileModalAcceptedHeader {
+    background-color: lightgreen;
+}
+
+.fullProfileModalRejectedHeader {
+    background-color: lightcoral;
+}
+
+.fullProfileBodyContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    padding: 5vh 0;
+    /* border: solid; */
+}
+
+.fullProfileLeftColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 40%;
+    /* border: solid; */
+}
+
+.fullProfileStats {
+    margin-bottom: 5vh;
+}
+
+.fullProfileStats > h4 {
+    margin-bottom: 10px;
+}
+
+.fullProfileStats > p {
+    margin-bottom: 5px;
+}
+
+.fullProfileBackgroundInfo > h4 {
+    margin-bottom: 10px;
+}
+
+.fullProfileBackgroundInfo > p {
+    margin-bottom: 5px;
+}
+
+.fullProfileRightColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 60%;
+    /* border: solid; */
+}
+
+.fullProfileExtraCirriculars {
+    margin-bottom: 5vh;
+}
+
+.fullProfileExtraCirriculars > h4 {
+    margin-bottom: 10px;
+}
+
+.fullProfileExtraCirriculars > p {
+    margin-bottom: 5px;
+}
+
+.fullProfileAdvice > h4 {
+    margin-bottom: 10px;
+}
+
+.fullProfileAdvice > p {
+    margin-bottom: 5px;
+}
+
+.fullProfileDateAddedText {
+    margin-top: 5vh;
+    text-align: center;
+}
+
+/* Phone */
+@media screen and (max-width: 800px) {
+    .fullProfileBodyContainer {
+        flex-direction: column;
+    }
+
+    .fullProfileLeftColumn {
+        width: 100%;
+    }
+
+    .fullProfileRightColumn {
+        width: 100%;
+    }
+
+    .fullProfileExtraCirriculars > h4 {
+        margin-top: 5vh;
+    }
+}
+

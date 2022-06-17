@@ -14,7 +14,7 @@ class AddCollegeController {
     @Autowired
     lateinit var service: AddCollegeService
 
-    @CrossOrigin(origins = ["http://localhost:3000"])
+    @CrossOrigin(origins = ["http://localhost:3000", "https://colley.fyi", "www.colley.fyi", "https://colleyapp.com", "www.colleyapp.com"])
     @PostMapping("/add-new-college")
     fun addNewCollege(@RequestBody collegeName: String): AddCollege {
         val springParser = JsonParserFactory.getJsonParser()
@@ -22,7 +22,7 @@ class AddCollegeController {
         return service.addNewCollege(body);
     }
 
-    @CrossOrigin(origins = ["http://localhost:3000"])
+    @CrossOrigin(origins = ["http://localhost:3000", "https://colley.fyi", "www.colley.fyi", "https://colleyapp.com", "www.colleyapp.com"])
     @GetMapping("/get-all-requested-colleges")
     fun getAllRequestedColleges(): List<AddCollege> {
         return service.getAllRequestedColleges();

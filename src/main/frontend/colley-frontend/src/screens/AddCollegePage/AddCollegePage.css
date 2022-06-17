@@ -1,0 +1,106 @@
+@media screen and (max-width: 900px) {
+    .addCollegeContainer > p {
+        margin-top: 25%;
+        font-size: 30px;
+        font-weight: 500;
+    }
+
+    .addCollegeForm > input {
+        width: 80vw;
+    }
+
+    .thanksText {
+        font-size: 36px;
+    }
+
+    .thanksTextSubHeadline {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .thanksText {
+        font-size: 50px;
+    }
+
+
+    .thanksTextSubHeadline {
+        font-size: 25px;
+    }
+}
+
+.addCollegeContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+}
+
+.addCollegeContainer > p {
+    margin-top: 10%;
+    font-size: 50px;
+    font-weight: 500;
+    margin-bottom: 2vh;
+}
+
+
+.addCollegeForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.addCollegeForm > input {
+    height: 50px;
+    width: 50vw;
+    padding: 16px;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: #000;
+    font-size: 14px;
+    font-weight: 400;
+    outline: none;
+    transition: 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    margin-bottom: 5px;
+}
+
+.addCollegeForm > input:focus {
+    border-width: 2px;
+    border-color: #3eb489;
+    color: black;
+}
+
+.addCollegeButton {
+    margin-top: 2vh;
+    background-color: #22d694;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 30vh;
+}
+
+.addCollegeButton:hover {
+    cursor: pointer;
+    background-color: #11d077;
+    color: #000;
+    transition: 0.5s ease-in-out;
+}
+
+.collegeSubmissionThanksContainer {
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0% 10%;
+}
+
+.thanksText {
+    font-weight: 500;
+}
+
+

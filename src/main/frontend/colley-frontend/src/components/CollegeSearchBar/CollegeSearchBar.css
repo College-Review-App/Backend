@@ -1,0 +1,25 @@
+@media screen and (max-width: 600px) {
+    .collegeSearchBar {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 600px) {
+    .collegeSearchBar {
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .collegeSearchBar {
+        width: 50%;
+    }
+}
+
+.collegeSearchBar {
+    background-color: white;
+}
+
+.addCollegeOption {
+    cursor: pointer;
+}

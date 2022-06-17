@@ -1,0 +1,29 @@
+.ErrorPageContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100wh;
+    height: 100vh;
+    align-items: center;
+}
+
+.errorImage {
+    width: 500px;
+    height: auto;
+    object-fit: cover;
+    margin-top: 5%;
+}
+
+.backHomeButtonErrorPage {
+    margin-top: 2%;
+    border: 1px solid transparent;
+    box-shadow: 0 4px 8px 0 rgba(66, 65, 65, 0.203),
+    0 6px 20px 0 rgba(161, 155, 155, 0.59);
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: #9afd4a;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}

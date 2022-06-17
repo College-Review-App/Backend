@@ -1,0 +1,126 @@
+.addReviewModalContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 62%;
+    height: 90%;
+    background-color: white;
+    overflow-y: scroll;
+    padding: 5vh 5vw 5vh 5vw;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(66, 65, 65, 0.203),
+      0 6px 20px 0 rgba(161, 155, 155, 0.59);
+}
+
+.addReviewModalContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.addReviewModalHeaderContainer {
+    width: 101%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.addReviewModalDisclaimerContainer > p {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.addReviewModalDisclaimerContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.addReviewUserFormContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.addReviewUserFormContainer > label {
+    margin-top: 10px;
+}
+
+.addReviewModalTextInput {
+    margin-top: 5px;
+    width: 100%;
+    padding-left: 8px;
+    height: 30px;
+    outline: none;
+}
+
+.addReviewModalTextInput:focus {
+    border-width: 2px;
+    border-color: #3eb489;
+    border-style: solid;
+}
+
+.addReviewModalTextArea {
+    margin-top: 5px;
+    width: 100%;
+    padding-left: 8px;
+    padding-top: 8px;
+    outline: none;
+    height: 100px;
+}
+
+.addReviewModalTextArea:focus {
+    border-width: 2px;
+    border-color: #3eb489;
+    border-style: solid;
+}
+
+.addReviewModalLocationPicker {
+    margin-top: 5px;
+    width: 100%;
+    padding-left: 8px;
+    height: 30px;
+    outline: none;
+    margin-bottom: 15px;
+}
+
+.addReviewModalInvalidInputWarning {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.addReviewModalExtracurricularsHeaderContainer {
+    margin: none;
+    padding: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.addReviewModalAddExtracurricularsContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.addReviewModalSubmitButton {
+    height: 40px;
+    border-radius: 10px;
+    background-color: #22d694;
+    margin-top: 20px;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+}
+
+/* Phone */
+@media screen and (max-width: 950px) {
+    .addReviewModalContainer {
+        width: 90%;
+        padding: 5vh 4vw 5vh 4vw;
+    }
+
+    .addReviewModalExtracurricularsHeaderContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

@@ -1,5 +1,6 @@
 package college.app.backend.classes
 
+import college.app.backend.Interfaces.CollegeDetails
 import javax.persistence.*
 
 // Maps the college schema in the MySQL database
@@ -29,5 +30,4 @@ data class College (
     var ranking : Int,
 
 )
-
 

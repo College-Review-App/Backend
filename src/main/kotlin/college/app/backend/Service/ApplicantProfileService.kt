@@ -4,6 +4,8 @@ import college.app.backend.Interfaces.ProfileDetails
 import college.app.backend.Repository.ApplicantProfileRepository
 import college.app.backend.classes.ApplicantProfile
 import college.app.backend.classes.College
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.time.LocalDateTime
@@ -11,6 +13,8 @@ import kotlin.reflect.typeOf
 
 @Service
 class ApplicantProfileService {
+
+    val logger: Logger = LoggerFactory.getLogger("Applicant Profile Service")
 
     @Autowired
     lateinit var applicantProfileRepository: ApplicantProfileRepository
@@ -27,6 +31,7 @@ class ApplicantProfileService {
 
     // Parses a map and writes the resulting data into a new applicant profile in MySQL
     fun addApplicationsByCollege(applicationInfo: Map<String, Any>, college: College): ApplicantProfile {
+        logger.info("Application Map: $applicationInfo")
         // Handles when GPA is an int (4.00 given as 4) or a double
         var gpaValue: Float = if (applicationInfo["GPA"] is Int) {
             (applicationInfo["GPA"] as Int).toFloat();
@@ -34,7 +39,6 @@ class ApplicantProfileService {
             (applicationInfo["GPA"] as Double).toFloat()
         }
 
-        println(applicationInfo["GPA"]!!::class.java.typeName)
         val currDate = LocalDateTime.now();
         val city: String = applicationInfo["city"] as String;
         val state: String = applicationInfo["state"] as String;
@@ -52,7 +56,7 @@ class ApplicantProfileService {
         val extracurriculars: String = applicationInfo["extracurriculars"] as String;
         val advice: String = applicationInfo["advice"] as String;
         val outcome: Int = applicationInfo["outcome"] as Int;
-        return applicantProfileRepository.save(
+        val response = applicantProfileRepository.save(
             ApplicantProfile(
                 null,
                 college,
@@ -77,6 +81,8 @@ class ApplicantProfileService {
                 false
             )
         );
+        logger.info(response.toString())
+        return response
     }
 
 }
