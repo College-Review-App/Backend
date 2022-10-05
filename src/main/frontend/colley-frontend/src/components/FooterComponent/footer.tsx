@@ -79,7 +79,7 @@ function Footer() {
               window.open('mailto:getspogo@gmail.com');
             }}
           >
-            getcolley@colley.com
+            info@colleyapp.com
           </p>
         </div>
         <div className="footerColumnContainer">

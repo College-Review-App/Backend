@@ -16,16 +16,19 @@ import { SetStateAction, useEffect, useState } from "react";
 import './AddReviewModal.css';
 import PlacesAutocomplete from 'react-places-autocomplete';
 import { config } from "../../constants";
+import TagManager from 'react-gtm-module';
 
 // Represents the Form to add a profile / review to a college
 const AddReviewModal = ({
   refresh,
   open,
   collegeName,
+  callback
 }: {
   refresh: boolean;
   open: boolean;
   collegeName: string;
+  callback: Function
 }) => {
   let ethnicityOptions: string[] = [
     'American Indian or Alaskan Native',
@@ -86,6 +89,13 @@ const AddReviewModal = ({
     setAdvice('');
     setCanSubmit(true);
   };
+
+  const tagManagerArgs = {
+    gtmId: 'GTM-MC6CHCK',
+    events: {
+      name: 'College Application Submitted'
+    }
+  }
 
   useEffect(() => {
     setModalOpen(open);
@@ -309,9 +319,12 @@ const AddReviewModal = ({
     )
       .then(async (response) => {
         const data = await response.json();
-        console.log(data);
+        callback();
         handleClose();
         setModalOpen(false);
+        if (config.analytics) {
+          TagManager.initialize(tagManagerArgs);
+        }
       })
       .catch((error) => {
         console.log('There was an error!', error);

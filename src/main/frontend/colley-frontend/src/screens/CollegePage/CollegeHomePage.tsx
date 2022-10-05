@@ -8,6 +8,8 @@ import { MdLocationOn } from 'react-icons/md';
 import { BsPencilSquare } from 'react-icons/bs';
 import AddReviewModal from '../../components/AddReviewModal/AddReviewModal';
 import { config } from '../../constants';
+import { Skeleton } from '@mui/material';
+import TagManager from 'react-gtm-module';
 
 function CollegeHomePage() {
   //collegeName field that we pass through the Url to relay information
@@ -16,6 +18,7 @@ function CollegeHomePage() {
 
   const [collegeInfo, setCollegeInfo] = useState<college>(new college());
   const [applicants, setApplicants] = useState<applicantProfile[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   // State variables for the add review modal
   const [refresh, setRefresh] = useState<boolean>(false);
@@ -26,8 +29,19 @@ function CollegeHomePage() {
   const [SAT, setSAT] = useState<number>(0);
   const [ACT, setACT] = useState<number>(0);
 
+  const tagManagerArgs = {
+    gtmId: 'GTM-MC6CHCK',
+    dataLayer: {
+      collegeName: collegeName,
+    },
+    dataLayerName: 'College-Page-View'
+  }
+
   useEffect(() => {
     getInformationForCollege();
+    if (config.analytics) {
+      TagManager.initialize(tagManagerArgs);
+    }
   }, [collegeName]);
 
   // calculates the average gpa of all applicants of a school
@@ -78,6 +92,7 @@ function CollegeHomePage() {
   };
 
   const getInformationForCollege = () => {
+    setLoading(true)
     const requestOptions = {
       method: 'GET',
     };
@@ -92,7 +107,6 @@ function CollegeHomePage() {
         if (data.message === 'Result must not be null!') {
           navigate('/404error');
         }
-        // console.log(data);
         // Parses JSON object into college info and applicant
         // review array
         setCollegeInfo(new college(data[0]));
@@ -104,9 +118,12 @@ function CollegeHomePage() {
         setGPA(calculateGPA(temp));
         setSAT(calculateSAT(temp));
         setACT(calculateACT(temp));
+        setTimeout(() => {
+          setLoading(false);
+        }, 650)
       })
       .catch((error) => {
-        console.log('There was an error!', error);
+        console.log('There was an error! ', error);
       });
   };
 
@@ -116,11 +133,11 @@ function CollegeHomePage() {
         refresh={refresh}
         open={modalOpen}
         collegeName={collegeName!}
+        callback={() => getInformationForCollege()}
       />
       <div className="collegeInfoContainer">
         <div className="collegeInfoTextContainer">
-          {/* should be {collegeInfo.getCollegeName} but my backend isnt running lol */}
-          <h1 className="collegeName">{collegeInfo.getCollegeName}</h1>
+          <h1 className="collegeName">{collegeName}</h1>
           <div className="collegeLocation">
             <MdLocationOn
               style={{ marginRight: 5 }}
@@ -175,17 +192,26 @@ function CollegeHomePage() {
               <BsPencilSquare color="white" fontWeight={'bold'} />
             </button>
           </div>
-          {applicants.length > 0 ?
-            applicants.map((profile) => (
-              <Review key={profile.getProfileId} profile={profile} />
-            ))
-            :
-            <p className='noApplicantProfilesMessage'>
-              Profiles for {collegeName} are coming soon! In the meantime,
-              feel free to add your own college application experience 😀.
-            </p>
-          } 
-          
+          {
+            loading ?
+              <>
+                <Skeleton width={'80%'} height={'140px'}/>
+                <Skeleton width={'80%'} height={'140px'}/>
+                <Skeleton width={'80%'} height={'140px'}/>
+                <Skeleton width={'80%'} height={'140px'}/>
+              </>
+              :
+              applicants.length > 0 ?
+                applicants.map((profile) => (
+                  <Review key={profile.getProfileId} profile={profile} />
+                ))
+                :
+                <p className='noApplicantProfilesMessage'>
+                  Profiles for {collegeName} are coming soon! In the meantime,
+                  feel free to add your own college application experience 😀.
+                </p>
+                
+          }
         </div>
       </div>
     </div>

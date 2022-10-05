@@ -2,6 +2,7 @@
 import './AddCollegePage.css';
 import { useState } from 'react';
 import { config } from '../../constants';
+import TagManager from 'react-gtm-module';
 
 const AddCollegePage = () => {
   //state fields
@@ -18,7 +19,9 @@ const AddCollegePage = () => {
     fetch(`${config.url.API_URL}/add-new-college?collegeName`, requestOptions)
       .then(async (response) => {
         const data = await response.json();
-        console.log(data);
+        if (config.analytics) {
+          TagManager.initialize(tagManagerArgs);
+        }
       })
       .catch((error) => {
         console.log('There was an error!', error);
@@ -83,10 +86,10 @@ const AddCollegePage = () => {
     }
   };
 
-  // useEffect(() => {
-  //   getAllRequestedColleges();
-  //   addRequestedCollegetoCollegeDB();
-  // }, []);
+  const tagManagerArgs = {
+    gtmId: 'GTM-MC6CHCK',
+    Event: 'New College Requested'
+  }
 
   return (
     <div className="addCollegeContainer">
